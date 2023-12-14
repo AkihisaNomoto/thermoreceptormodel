@@ -6,11 +6,12 @@ and consider the spectral data of the skin to allow user to simulate thermal per
 different wavelengths.
 
 # Requirement
-* python3
-* numpy
+* [python3](https://www.python.org/downloads/)
+* [numpy](https://numpy.org/)
+* [pandas](https://pandas.pydata.org/)
 
 # Documentation
-Detail equations can be found here (link)
+Detail equations can be found here (link). This will be updated once the paper is published.
 
 # Installation
 
@@ -19,7 +20,7 @@ Detail equations can be found here (link)
 ```
 
 # Example
-The following code is identical as the one in the "examples" folder.
+The following two codes are identical as the codes in the "examples" folder.
 
 ## Example 1
 This code simulates thermoreceptor response resulting from a sudden ambient temperature change.
