@@ -19,9 +19,12 @@ Detail equations can be found here (link)
 ```
 
 # Example
+The following code is identical as the one in the "examples" folder.
+
+## Example 1
+This code simulates thermoreceptor response resulting from a sudden ambient temperature change.
+
 ```python
-import pandas as pd
-import configuration
 from src.thermoreceptormodel import model
 
 #--------------------------------------
@@ -43,7 +46,15 @@ df_simulation_results = model_instance.simulate(show_input=False)
 
 # Output as a csv file
 df_simulation_results.to_csv("example_simulation_1.csv")
+```
 
+## Example 2
+This code simulates thermoreceptor response when the skin is irradiated by visible rays.
+
+```python
+import pandas as pd
+import configuration
+from src.thermoreceptormodel import model
 #--------------------------------------
 # Example 2 (Spectral irradiation)
 #
