@@ -102,7 +102,7 @@ df_simulation_results.to_csv("example_simulation_2.csv")
 ```
 
 # Contact
-Akihisa Nomoto (monyo323232@gmailcom; nomoto@berkeley.edu)
+Akihisa Nomoto (monyo323232@gmail.com; nomoto@berkeley.edu)
 
 # License
 This model is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
