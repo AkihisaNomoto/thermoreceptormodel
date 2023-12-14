@@ -25,14 +25,6 @@ import configuration
 from src.thermoreceptormodel import model
 
 #--------------------------------------
-# Example
-
-```python
-import pandas as pd
-import configuration
-from src.thermoreceptormodel import model
-
-#--------------------------------------
 # Example 1 (Environmental step-change)
 #--------------------------------------
 # Create instance
