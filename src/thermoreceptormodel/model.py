@@ -14,6 +14,10 @@ class ThermoreceptorModel:
     This class simulates response of skin receptors to varying thermal environments.
     It takes into account the conduction, convection, and radiation heat transfer
     processes, as well as the distribution of radiation within skin layers.
+
+    Examples
+    -------
+
     """
 
     def __init__(self):
