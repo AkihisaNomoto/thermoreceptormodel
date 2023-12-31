@@ -1,5 +1,5 @@
 from setuptools import setup, find_packages
-from src.thermoreceptormodel import __version__
+from thermoreceptormodel import __version__
 
 with open("README.md", "r") as fh:
     readme_description = fh.read()
