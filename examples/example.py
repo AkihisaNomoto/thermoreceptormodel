@@ -1,6 +1,6 @@
 import pandas as pd
 import configuration
-from src.thermoreceptormodel import model
+from thermoreceptormodel import model
 
 #--------------------------------------
 # Example 1 (Environmental step-change)

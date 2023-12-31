@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-from src.thermoreceptormodel import __version__
+from thermoreceptormodel import __version__
 import configuration
 
 df = pd.read_csv(configuration.SKIN_OPTICAL_PROPERTIES)
