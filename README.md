@@ -1,28 +1,37 @@
-# Thermoreceptor model
+# ThermoreceptorModel
 
-This model simulates thermoreceotor responces in the skin.
-The model is based on de Dear's model (https://doi.org/10.1111/j.1600-0668.1993.t01-1-00004.x) 
-and consider the spectral data of the skin to allow user to simulate thermal perception affected by radiation of
+## Overview
+ThermoreceptorModel is a comprehensive Python package designed to simulate the thermal response of skin receptors. 
+This model accounts for various heat transfer processes, including conduction, convection, radiation, and the distribution of radiation within skin layers. 
+It's tailored for researchers and engineers working in biophysical modeling, thermal physiology, and related fields.
+
+The model is based on [de Dear's model](https://doi.org/10.1111/j.1600-0668.1993.t01-1-00004.x) 
+and consider [spectral data of the skin](https://doi.org/10.1007/BF00502381) to allow user to simulate thermal perception affected by radiation of
 different wavelengths.
+
+Detail equations can be found here ([link](https://doi.org/10.1016/j.indenv.2023.100003)).
+
+## Features
+- Simulation of skin receptors' response to varying thermal environments.
+- Incorporation of conduction, convection, and radiation heat transfer processes.
+- Detailed modeling of radiation distribution within skin layers.
+- Customizable simulation phases with different environmental conditions.
 
 # Requirement
 * [python3](https://www.python.org/downloads/)
 * [numpy](https://numpy.org/)
 * [pandas](https://pandas.pydata.org/)
 
-# Documentation
-Detail equations can be found here (link). This will be updated once the paper is published.
 
-# Installation
-
+## Installation
 ```bash
 !git clone https://github.com/AkihisaNomoto/thermoreceptormodel.git
 ```
 
-# Example
+## Example
 The following two codes are identical as the codes in the "examples" folder.
 
-## Example 1
+### Example 1
 This code simulates thermoreceptor response resulting from a sudden ambient temperature change.
 
 ```python
@@ -49,7 +58,7 @@ df_simulation_results = model_instance.simulate(show_input=False)
 df_simulation_results.to_csv("example_simulation_1.csv")
 ```
 
-## Example 2
+### Example 2
 This code simulates thermoreceptor response when the skin is irradiated by visible rays.
 
 ```python
@@ -102,8 +111,32 @@ df_simulation_results = model_instance.simulate(show_input=True)
 df_simulation_results.to_csv("example_simulation_2.csv")
 ```
 
-# Contact
+## Inputs
+### Setter methods
+- `length`: thickness of skin layer in m.
+- `n`: number of skin nodes.
+- `dt`: time step for the simulation.
+- `T_core`: core body temperaturoe in °C.
+- `q_spectrum`: spectral irradiance in W/m²/µm
+- `hc`: convection heat transfer coefficient in W/m²/K.
+- `hr`: radiation heat transfer coefficient in W/m²/K.
+### add_phase method
+- `duration_in_sec`: Duration of each simulation phase in seconds.
+- `t_db`: Dry bulb (ambient) temperature in °C.
+- `t_r`: Radiant temperature in °C.
+- `q_irradiance`: Total irradiance in W/m².
+
+## Outputs
+The `simulate` method returns a pandas DataFrame containing:
+- Temperature for each skin layer.
+- Impulse frequency from warm receptor.
+- Environmental conditions for each phase if `show_input` is set to True.
+
+## Contributing
+Contributions are welcome! If you'd like to contribute, please fork the repository and use a feature branch. Pull requests are warmly welcomed.
+
+## Contact
 Akihisa Nomoto (monyo323232@gmail.com; nomoto@berkeley.edu)
 
-# License
+## License
 This model is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
