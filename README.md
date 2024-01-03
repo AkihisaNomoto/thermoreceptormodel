@@ -12,7 +12,7 @@ different wavelengths.
 Please cite us if you use this package and describe which version you used:
 Akihisa Nomoto, Yoshiichi Ozeki, Miyoko Oiwake, Ryo Hisayama, Yutaro Ogawa, Mizuho Akimoto, Shin-ichi Tanabe,
 Quantitative Analysis of Wavelength Dependence of Thermal Perception, Indoor Environments, 2023, 100003,
-https://doi.org/10.1016/j.indenv.2023.100003.
+DOI: https://doi.org/10.1016/j.indenv.2023.100003.
 
 ## Features
 - Simulation of skin receptors' response to varying thermal environments.
@@ -52,9 +52,10 @@ The `simulate` method returns a pandas DataFrame containing:
 - Impulse frequency from warm receptor.
 - Environmental conditions for each phase if `show_input` is set to True.
 
+Output CSV files are in the `examples` folder.
 
 ## Example
-The following two codes are identical as the codes in the "examples" folder.
+The following two codes are identical as the codes in the `examples` folder.
 
 ### Example 1
 This code simulates thermoreceptor response resulting from a sudden ambient temperature change.
