@@ -9,7 +9,10 @@ The model is based on [de Dear's model](https://doi.org/10.1111/j.1600-0668.1993
 and consider [spectral data of the skin](https://doi.org/10.1007/BF00502381) to allow user to simulate thermal perception affected by radiation of
 different wavelengths.
 
-Detail equations can be found here ([link](https://doi.org/10.1016/j.indenv.2023.100003)).
+Please cite us if you use this package and describe which version you used:
+Akihisa Nomoto, Yoshiichi Ozeki, Miyoko Oiwake, Ryo Hisayama, Yutaro Ogawa, Mizuho Akimoto, Shin-ichi Tanabe,
+Quantitative Analysis of Wavelength Dependence of Thermal Perception, Indoor Environments, 2023, 100003,
+https://doi.org/10.1016/j.indenv.2023.100003.
 
 ## Features
 - Simulation of skin receptors' response to varying thermal environments.
@@ -17,7 +20,7 @@ Detail equations can be found here ([link](https://doi.org/10.1016/j.indenv.2023
 - Detailed modeling of radiation distribution within skin layers.
 - Customizable simulation phases with different environmental conditions.
 
-# Requirement
+## Requirement
 * [python3](https://www.python.org/downloads/)
 * [numpy](https://numpy.org/)
 * [pandas](https://pandas.pydata.org/)
@@ -27,6 +30,28 @@ Detail equations can be found here ([link](https://doi.org/10.1016/j.indenv.2023
 ```bash
 !git clone https://github.com/AkihisaNomoto/thermoreceptormodel.git
 ```
+
+## Inputs
+### Setter methods
+- `length`: thickness of skin layer in m.
+- `n`: number of skin nodes.
+- `dt`: time step for the simulation.
+- `T_core`: core body temperaturoe in °C.
+- `q_spectrum`: spectral irradiance in W/m²/µm
+- `hc`: convection heat transfer coefficient in W/m²/K.
+- `hr`: radiation heat transfer coefficient in W/m²/K.
+### add_phase method
+- `duration_in_sec`: Duration of each simulation phase in seconds.
+- `t_db`: Dry bulb (ambient) temperature in °C.
+- `t_r`: Radiant temperature in °C.
+- `q_irradiance`: Total irradiance in W/m².
+
+## Outputs
+The `simulate` method returns a pandas DataFrame containing:
+- Temperature for each skin layer.
+- Impulse frequency from warm receptor.
+- Environmental conditions for each phase if `show_input` is set to True.
+
 
 ## Example
 The following two codes are identical as the codes in the "examples" folder.
@@ -110,27 +135,6 @@ df_simulation_results = model_instance.simulate(show_input=True)
 # Output as a csv file
 df_simulation_results.to_csv("example_simulation_2.csv")
 ```
-
-## Inputs
-### Setter methods
-- `length`: thickness of skin layer in m.
-- `n`: number of skin nodes.
-- `dt`: time step for the simulation.
-- `T_core`: core body temperaturoe in °C.
-- `q_spectrum`: spectral irradiance in W/m²/µm
-- `hc`: convection heat transfer coefficient in W/m²/K.
-- `hr`: radiation heat transfer coefficient in W/m²/K.
-### add_phase method
-- `duration_in_sec`: Duration of each simulation phase in seconds.
-- `t_db`: Dry bulb (ambient) temperature in °C.
-- `t_r`: Radiant temperature in °C.
-- `q_irradiance`: Total irradiance in W/m².
-
-## Outputs
-The `simulate` method returns a pandas DataFrame containing:
-- Temperature for each skin layer.
-- Impulse frequency from warm receptor.
-- Environmental conditions for each phase if `show_input` is set to True.
 
 ## Contributing
 Contributions are welcome! If you'd like to contribute, please fork the repository and use a feature branch. Pull requests are warmly welcomed.
