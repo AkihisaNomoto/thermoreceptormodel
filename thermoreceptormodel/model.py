@@ -57,6 +57,10 @@ class ThermoreceptorModel:
         self.coef_dynamic_cold_receptor = -62  # Hz·s/K
         self.T_no_static_discharge = 33
 
+        # Set default skin color to yellow
+        self.skin_color = "yellow"  # Default skin color is yellow
+        self._set_skin_properties(df)  # Set skin properties using the DataFrame
+
         # Initialize additional parameters
         self._initialize_parameters()
 
@@ -110,11 +114,27 @@ class ThermoreceptorModel:
         Parameters:
         - df (DataFrame): A DataFrame containing spectral properties of the skin.
         """
+        # Define spectral reflectance adjustment based on skin color
+        # The data for Yellow is based on Terada's paper that measured spectral skin properties for Japanese.
+        # (Terada et al, Spectral radiative properties of a living human body).
+        # The data for Black and White is based on two of Jacquez's papers measuring spectral skin properties for Negro
+        # (John A. Jaquez et al., Spectad Reflectance of Humun Skin in the Region 0.7-2.6 µ).
+        # Use the class attribute self.skin_color to determine which reflectance column to use
+        if self.skin_color == "yellow":
+            reflectance_col = "reflectance_yellow_nd"
+        elif self.skin_color == "black":
+            reflectance_col = "reflectance_black_nd"
+        elif self.skin_color == "white":
+            reflectance_col = "reflectance_white_nd"
+        else:
+            raise ValueError("Invalid skin color. Choose from 'yellow', 'black', or 'white'.")
+
+
         # Ensure the spectral properties align with the wavelengths
-        self.spectral_reflectance = df["reflectance_nd"].reindex(
+        self.spectral_reflectance = df[reflectance_col].reindex(
             self.wavelengths, fill_value=0
         )
-        self.spectral_transmittance = df["transmittance_nd"].reindex(
+        self.spectral_transmittance = df["transmittance_yellow_nd"].reindex(
             self.wavelengths, fill_value=0
         )
         self.spectral_absorption_coefficient = df[

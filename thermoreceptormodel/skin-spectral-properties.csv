@@ -1,4 +1,4 @@
-﻿wavelength_nm,absorption_coefficient_1/mm,scattering_coefficient_1/mm,reflectance_nd,transmittance_nd,reflectance_dark_american_negro_nd,reflectance_fair_complexioned_white_nd
+﻿wavelength_nm,absorption_coefficient_1/mm,scattering_coefficient_1/mm,reflectance_yellow_nd,transmittance_yellow_nd,reflectance_black_nd,reflectance_white_nd
 300,2.1,1.7,0.1,0,0.06,0.1
 310,2.16,1.65,0.097,,0.062,0.14
 320,2.22,1.6,0.0942,,0.064,0.18
