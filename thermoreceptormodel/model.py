@@ -1,7 +1,13 @@
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+import configuration
+
+
 import numpy as np
 import pandas as pd
 from . import __version__
-import configuration
+
 
 df = pd.read_csv(configuration.SKIN_OPTICAL_PROPERTIES)
 df.index = df["wavelength_nm"]
