@@ -65,7 +65,6 @@ class ThermoreceptorModel:
 
         # Set default skin color to yellow
         self.skin_color = "yellow"  # Default skin color is yellow
-        self._set_skin_properties(df=df)  # Set skin properties using the DataFrame
 
         # Initialize additional parameters
         self._initialize_parameters()
